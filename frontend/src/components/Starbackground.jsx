@@ -7,14 +7,7 @@ export const Starbackground = () => {
   <AnimatePresence>
     <motion.aside 
       className='bg-container' 
-      // initial='initial'
-      // animate='animate'
-      // // eslint-disable-next-line no-sequences
-      // transition={{ duration: 15},{repeat: Infinity}}
-      // variants={twinklingAnimations}
     >
-      {/* <span className="stars"></span>
-      <motion.span  className="twinkling" ></motion.span> */}
       <motion.span className='cloud-container'>
         <motion.span 
         initial='initial' 
