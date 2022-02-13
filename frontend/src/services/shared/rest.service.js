@@ -1,14 +1,14 @@
 import axios from 'axios';
 
-const baseUrl = process.env.REACT_APP_BASE_URL;
+const baseUrl = process.env.REACT_APP_API_URL;
 
-export const post = async (endpoint, body, headers) => {
+export const get = async (endpoint, body, headers) => {
     try {
-        const url = `${baseUrl}${endpoint}`;
+        const url = `https://swapi.dev/${endpoint}`;
         const result = await axios(url, {
-            method: 'POST',
+            method: 'GET',
             headers: headers ? headers : {'content-type': 'application/json'},
-            data: body
+            data: body ? body : null
         });
         return result;
 
