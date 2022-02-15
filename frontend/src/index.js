@@ -30,12 +30,13 @@ const starwars = createTheme({
   typography: {
     fontFamily:'DIN',
     h1:{
-      fontSize: '2rem'
+      fontSize: '2rem',
+      fontWeight: 700
     },
     h6:{
       fontSize: '.85rem',
     },
-   }
+   },
 })
 
 ReactDOM.render( 

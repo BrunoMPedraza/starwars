@@ -1,19 +1,12 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React from "react";
 import { BrowserRouter,Route,Routes } from "react-router-dom";
-import {Panel} from '../pages/Panel'
-import { loadSwapi } from "../services/home.service";
-import {Characters} from '../pages/tabs/Characters'
+import {Panel} from '../pages'
 export const AppRoutes = () => {
   
-  
-
   return (
     <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Panel/>}>
-            <Route path='/characters' element={<Characters/>}/>
-          </Route>
+          <Route path='onboarding/*' element={<Panel/>}/>
         </Routes>
     </BrowserRouter>
   );

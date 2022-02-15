@@ -14,7 +14,7 @@ export const Characters = () => {
         console.warn(error)
       }
     }
-    loadInfo('characters')
+    // loadInfo('characters')
   }, [])
   return (
     <div>

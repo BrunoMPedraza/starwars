@@ -2,17 +2,24 @@ header
     section
         &.login
             position: relative
-            margin-top: 10%
+            display: flex
+            justify-content: center
+            margin-top: 2rem
+            padding: 2rem
             left: 5%
             width: 90%
             height: 70vh
             border-radius: 1rem
+            overflow: hidden
+            .welcome-message
+                position: absolute
+                top: 26%
     img
         &.logo
-            position: absolute
-            width: 7em
-            left: 32.5%
-            top: 20%
+            top: 5%
+            height: 20%
+            position: fixed
+            filter: blur(1px)
         &.accepted
             position: absolute
             width: 25%
