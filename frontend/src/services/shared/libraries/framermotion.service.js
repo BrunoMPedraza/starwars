@@ -48,3 +48,10 @@ export const glassAnimations={
     exit:{y:40, opacity: 0 },
     transition:{ delay: 1.1,duration: 2}
 }
+
+export const loadingAnimations={
+    initial:{ y:-1000, scale: 0.6 },
+    animate:{ y:0, scale: 1 },
+    exit:{y:1000, opacity: 0, scale: 0.1 },
+    transition:{ delay: 1.1,duration: 2}
+}

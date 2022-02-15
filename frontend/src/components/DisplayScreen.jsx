@@ -1,24 +1,30 @@
 import { Typography } from '@mui/material'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { LoginForm } from './onboarding'
 import { FunnyLoader } from './units/FunnyLoader'
 
 export const DisplayScreen = ({screenScene}) => {
+    const [isLoading,setIsLoading] = useState(true)
+        useEffect(() => {
+            setIsLoading(true)
+            setTimeout(() => {
+                setIsLoading(false)
+            }, 25000);
+    },  [])
   return (
     <>
-        {screenScene==='loading' && (
-        <>
-            <FunnyLoader/>
-        </>
-        )}
-        {screenScene==='auth' && (
+        {isLoading ? <FunnyLoader loading={isLoading}/> :
             <>
-                <Typography color='primary' component='h1' variant='h1' className='welcome-message'>
-                    Autenticación
-                </Typography>
-                <LoginForm/>
+                {screenScene==='auth' & !isLoading &&  (
+                    <>
+                        <Typography color='primary' component='h1' variant='h1' className='welcome-message'>
+                            Autenticación
+                        </Typography>
+                        <LoginForm/>
+                    </>
+                )}
             </>
-        )}
+        }
     </>
   )
 }
