@@ -19,7 +19,8 @@ const starwars = createTheme({
     primary:{
       light: '#ad9c4d',
       main: '#DBB404',
-      dark: '#635410'
+      dark: '#635410',
+      contrastText: '#000000'
     },
     info:{
       light:'#fafafa',
@@ -32,6 +33,14 @@ const starwars = createTheme({
     h1:{
       fontSize: '2rem',
       fontWeight: 700
+    },
+    h2:{
+      fontSize: '1.4rem',
+      fontWeight: 600
+    },
+    h5:{
+      fontSize: '1.1rem',
+      fontWeight: 400
     },
     h6:{
       fontSize: '.85rem',

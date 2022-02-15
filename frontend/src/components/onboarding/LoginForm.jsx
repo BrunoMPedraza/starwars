@@ -1,19 +1,19 @@
 import { styled } from '@mui/material/styles';
 import { Box, Button, InputAdornment, TextField } from '@mui/material'
+import LoadingButton from '@mui/lab/LoadingButton';
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
 import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
 import { fixedDraggable, PasswordTextFieldStyles } from '../../services/shared/libraries/mui.service';
+import { passwords } from '../../services/home.service';
 
 export const LoginForm = () => {
   const PasswordTextField = styled(TextField)(PasswordTextFieldStyles);
   const [secretCode,setSecretCode] = useState()
-  const passwords = ['palpatine','darthvader','kyloren','sith','ani']
   const handlePassword = (e) =>{
     e.preventDefault()
-    setSecretCode(e.target.value)
-    console.log(secretCode)
+    setSecretCode((e.target.value).toLowerCase())
   }
 
   return (
@@ -43,7 +43,7 @@ export const LoginForm = () => {
               style: { color: "#DBB404"} ,
               startAdornment: (
                 <InputAdornment position="start">
-                  {passwords.includes(secretCode) ? <LockTwoToneIcon color='primary' /> : <LockOpenTwoToneIcon color='primary'/>}
+                  {!passwords.includes(secretCode) ? <LockTwoToneIcon color='primary' /> : <LockOpenTwoToneIcon color='primary'/>}
                 </InputAdornment>
                 ),
               }
@@ -56,9 +56,9 @@ export const LoginForm = () => {
           dragConstraints={fixedDraggable}
           dragElastic={.05}
         >
-          <Button disabled={!passwords.includes(secretCode)}color='primary' variant='contained'>
+          <LoadingButton loading={false} loadingIndicator="Verificando ..." disabled={!passwords.includes(secretCode)} color='primary' variant='contained'>
             Ingresar
-          </Button>
+          </LoadingButton>
         </article>
       </Box>
     </motion.section>

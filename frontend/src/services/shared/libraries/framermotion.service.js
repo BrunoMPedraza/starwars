@@ -20,3 +20,31 @@ export const massiveAnimation = {
     animate:{ opacity: 1, y: 0, transition:{duration: .5, delay: .5} },
     transition:{ type: "spring", bounce: 1 }
 }
+
+export const asidePropsAnimations= {
+    initial:{ y:20, opacity: 0 },
+    animate:{ y:0, opacity: 1 },
+    exit:{y:20, opacity: 0 },
+    transition:{ delay: 1.5,duration: .9}
+}
+
+export const formPropsAnimations={
+    initial:{ y:40, opacity: 0 },
+    animate:{ y:0, opacity: 1 },
+    exit:{y:40, opacity: 0 },
+    transition:{ delay: 2.9,duration: .6}
+}
+
+export const logoAnimations ={
+    initial:{ y:40, rotate: 180, opacity: 0, scale: 1.2 },
+    animate:{ y:0, rotate: 0, opacity: 1, scale: 1 },
+    exit:{y:40, opacity: 0 },
+    transition:{ delay: .5,duration: 1}
+}
+
+export const glassAnimations={
+    initial:{ y:-1000, scale: 0.6 },
+    animate:{ y:0, scale: 1 },
+    exit:{y:40, opacity: 0 },
+    transition:{ delay: 1.1,duration: 2}
+}

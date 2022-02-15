@@ -1,24 +1,24 @@
 import React from 'react'
 import { GlassLimit,LoginForm } from './onboarding/';
 import { Typography } from '@mui/material';
-import imperial_emblem from '../assets/logos/imperial_emblem.svg'
+import { AnimatePresence, motion } from 'framer-motion';
+import { asidePropsAnimations, formPropsAnimations, glassAnimations } from '../services/shared/libraries/framermotion.service';
+import { DisplayScreen } from './DisplayScreen';
 
 export const InfoCube = () => {
   
   return (
-    <section className='info-cube-container'>
-      <header className=''>
-        <aside>
-          <GlassLimit message='Solo personal autorizado de IM'/>
-        </aside>
-        <section className='login glass-bg blurred'>
-          <Typography color='primary' component='h1' variant='h1' className='welcome-message'>
-              Autenticación
-          </Typography>
-          <img className='logo' src={imperial_emblem} alt="Emblema imperial" />
-          <LoginForm/>
-        </section>
-    </header>
-    </section>
+    <motion.section className='info-cube-container' {...glassAnimations}>
+      <header className='info-cube-header'>
+        <AnimatePresence>
+          <motion.aside {...asidePropsAnimations}>
+            <GlassLimit message='Solo personal autorizado de IM'/>
+          </motion.aside>
+          <motion.section className='login glass-bg blurred' {...formPropsAnimations}>
+            <DisplayScreen screenScene='loading'/>
+          </motion.section>
+        </AnimatePresence>
+      </header>
+    </motion.section>
   )
 }

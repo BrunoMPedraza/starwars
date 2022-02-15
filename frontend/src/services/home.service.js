@@ -13,3 +13,5 @@ export const loadSwapi = async(categories) =>{
         throw error;
     }
 }
+
+export const passwords = ['palpatine','darthvader','kyloren','sith','ani']
