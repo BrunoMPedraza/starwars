@@ -7,13 +7,25 @@ import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
 import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
 import { fixedDraggable, PasswordTextFieldStyles } from '../../services/shared/libraries/mui.service';
 import { passwords } from '../../services/home.service';
+import { useDispatch } from 'react-redux';
+import { login } from '../../features/useSlice';
 
 export const LoginForm = () => {
   const PasswordTextField = styled(TextField)(PasswordTextFieldStyles);
   const [secretCode,setSecretCode] = useState()
+  const [isLoading,setIsLoading] = useState()
+  const dispatch = useDispatch();
   const handlePassword = (e) =>{
     e.preventDefault()
     setSecretCode((e.target.value).toLowerCase())
+  }
+  const storePassword = (e) =>{
+    e.preventDefault()
+    if(passwords.includes(secretCode)){
+    dispatch(login({
+      secretCode:secretCode 
+    }))}
+
   }
 
   return (
@@ -54,9 +66,15 @@ export const LoginForm = () => {
           className='login-form-button-container'
           drag
           dragConstraints={fixedDraggable}
-          dragElastic={.05}
         >
-          <LoadingButton loading={false} loadingIndicator="Verificando ..." disabled={!passwords.includes(secretCode)} color='primary' variant='contained'>
+          <LoadingButton 
+          loading={isLoading} 
+          loadingIndicator="Verificando ..." 
+          disabled={!secretCode} 
+          color='primary' 
+          onClick={storePassword}
+          variant='contained'
+          >
             Ingresar
           </LoadingButton>
         </article>

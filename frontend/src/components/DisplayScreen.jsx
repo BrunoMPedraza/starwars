@@ -9,7 +9,7 @@ export const DisplayScreen = ({screenScene}) => {
             setIsLoading(true)
             setTimeout(() => {
                 setIsLoading(false)
-            }, 25000);
+            }, 5000);
     },  [])
   return (
     <>

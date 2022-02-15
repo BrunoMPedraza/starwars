@@ -5,6 +5,8 @@ import reportWebVitals from './reportWebVitals';
 import { AppRoutes } from './routes/AppRoutes';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
+import { Provider } from 'react-redux'
+import store from './app/store'
 
 // PALLETE: https://color.adobe.com/es/Star-Wars-(RetroMoviePostercom)-color-theme-6247821/
 // PRIMARY: BLUE
@@ -51,12 +53,15 @@ const starwars = createTheme({
 ReactDOM.render( 
   <React.StrictMode>
     <ThemeProvider theme={starwars}>
-      <AppRoutes />
+      <Provider store={store}>
+        <AppRoutes />
+      </Provider>
     </ThemeProvider>
     
   </React.StrictMode>,
   document.getElementById('root')
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
