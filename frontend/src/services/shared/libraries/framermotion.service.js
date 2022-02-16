@@ -50,8 +50,18 @@ export const glassAnimations={
 }
 
 export const loadingAnimations={
-    initial:{ y:-1000, scale: 0.6 },
-    animate:{ y:0, scale: 1 },
-    exit:{y:1000, opacity: 0, scale: 0.1 },
-    transition:{ delay: 1.1,duration: 2}
+    initial:{ y:"50%",opacity:1, scale: 0.5 },
+    animate:{ y:0,opacity:1, scale: 1 },
+    exit:{y:"50%", transition:{duration:1} },
+    transition:{ delay: 2.5,duration:1,ease:"easeOut"}
+}
+// initial={{y:"50%",opacity:0,scale:0.5}}
+// animate={{y:0,opacity:1,scale:1}}
+// exit={{y:"50%",opacity:0,transition:{duration:9.0}}}
+// transition={{duration:0.4,delay:.2,ease:"easeOut"}}
+export const mainGlassMovementAnimations={
+    initial:{ y:"50%",opacity:0, scale: 0.5 },
+    animate:{ y:0,opacity:1, scale: 1 },
+    exit:{y:"50%",opacity:0, transition:{duration:2} },
+    transition:{ delay: .2,duration:1,ease:"easeOut"}
 }

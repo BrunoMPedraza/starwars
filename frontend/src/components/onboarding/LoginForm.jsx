@@ -10,7 +10,7 @@ import { passwords } from '../../services/home.service';
 import { useDispatch } from 'react-redux';
 import { login } from '../../features/useSlice';
 
-export const LoginForm = () => {
+export const LoginForm = ({passedPassword}) => {
   const PasswordTextField = styled(TextField)(PasswordTextFieldStyles);
   const [secretCode,setSecretCode] = useState()
   const [isLoading,setIsLoading] = useState()
@@ -22,9 +22,13 @@ export const LoginForm = () => {
   const storePassword = (e) =>{
     e.preventDefault()
     if(passwords.includes(secretCode)){
-    dispatch(login({
+    dispatch(
+      login({
       secretCode:secretCode 
-    }))}
+      })
+    )
+    passedPassword()
+  }
 
   }
 
@@ -32,13 +36,12 @@ export const LoginForm = () => {
     <motion.section
     drag
     dragConstraints={fixedDraggable}
-    dragElastic={0.2}
     className='login-form-container'
     >
       <Box
         component="form"
         noValidate
-        autoComplete="off"
+        autoCaomplete="off"
         className='login-form'
       >
         <article>
@@ -73,6 +76,7 @@ export const LoginForm = () => {
           disabled={!secretCode} 
           color='primary' 
           onClick={storePassword}
+          type='submit'
           variant='contained'
           >
             Ingresar

@@ -34,13 +34,26 @@ export const FunnyLoader = ({isLoading}) => {
   
   return (
     <AnimatePresence>
-      {!isLoading && 
-      <motion.section className='loading-container' {...loadingAnimations}>
-        <Typography color='primary' component='h2' variant='h5' className='loading-message'>
-            {currentPhrase}...
-        </Typography> 
-        <LinearProgress className='loading-progress-bar' color="primary" />
-      </motion.section>}
+       {!isLoading ?
+        <motion.section
+        key="test"
+        initial={{opacity:0}}
+        animate={{opacity:1}}
+        className='loading-container'
+        >
+          <Typography color='primary' component='h2' variant='h5' className='loading-message'>
+              {currentPhrase}...
+          </Typography> 
+          <LinearProgress className='loading-progress-bar' color="primary" />
+        </motion.section>
+        :
+        <motion.section>
+          <Typography color='success' component='h2' variant='h5' className='loading-message'>
+            ¡Finalizado!
+          </Typography>
+        </motion.section>
+      }
+      
     </AnimatePresence>
   )
 }

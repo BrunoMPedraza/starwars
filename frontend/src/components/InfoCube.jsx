@@ -3,6 +3,7 @@ import { GlassLimit } from './onboarding/';
 import { AnimatePresence, motion } from 'framer-motion';
 import { asidePropsAnimations, formPropsAnimations, glassAnimations } from '../services/shared/libraries/framermotion.service';
 import { DisplayScreen } from './DisplayScreen';
+import { Unlogger } from './units/Unlogger';
 
 export const InfoCube = () => {
 
@@ -19,6 +20,7 @@ export const InfoCube = () => {
           </motion.section>
         </AnimatePresence>
       </header>
+      <Unlogger/>
     </motion.section>
   )
 }
