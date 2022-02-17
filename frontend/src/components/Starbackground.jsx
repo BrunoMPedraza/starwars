@@ -6,6 +6,7 @@ export const Starbackground = () => {
   return (
   <AnimatePresence>
     <motion.aside 
+      key='outer-space'
       className='bg-container' 
     >
       <motion.span className='cloud-container'>

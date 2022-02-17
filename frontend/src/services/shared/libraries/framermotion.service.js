@@ -1,13 +1,29 @@
+// PAGE 0
+    export const startButtonAnimations={
+        initial:{ y:'30vh',x:'35vw',opacity:0, scale: 0 },
+        animate:{ y:'50vh',x:'35vw',opacity:1, scale: 1 },
+        exit:{y:'15vh', opacity: 0 },
+        transition:{ delay: .3,duration: .6}
+    }
+
+    export const githubAnimations ={
+        initial:{ y:'-2rem',x:'-2rem', rotate: 180, opacity: 0, scale: 1.2 },
+        animate:{ y:'40vh',x:'20vw', rotate: 0, opacity: 0.8, scale: 1 },
+        exit:{y:-40, opacity: 0 },
+        transition:{ delay: 3,duration: 2}
+    }
+//END OF PAGE 0
+// MISC
+export const glassAnimations={
+    initial:{ y:'-90vh', scale: .8 },
+    animate:{ y:0, scale: 1 },
+    exit:{y:0, opacity: 0 },
+    transition:{ delay: .3,duration: 2}
+}
+// END OF MISC
 export const twinklingAnimations = {
     initial:{ x: '180vh' },
     animate:{ x: '-200vh'},
-
-// initial={{ x: 300, opacity: 0 }}
-// animate={{ x: 0, opacity: 1 }}
-// exit={{ x: -300, opacity: 0 }}
-// transition={{ repeat: Infinity, duration: 2 }}
-
-
 }
 export const footerAnimation = {
     initial:{opacity: 0, y: 0 },
@@ -25,7 +41,7 @@ export const asidePropsAnimations= {
     initial:{ y:20, opacity: 0 },
     animate:{ y:0, opacity: 1 },
     exit:{y:20, opacity: 0 },
-    transition:{ delay: 1.5,duration: .9}
+    transition:{ delay: 4.5,duration: .9}
 }
 
 export const formPropsAnimations={
@@ -42,12 +58,9 @@ export const logoAnimations ={
     transition:{ delay: .5,duration: 1}
 }
 
-export const glassAnimations={
-    initial:{ y:-1000, scale: 0.6 },
-    animate:{ y:0, scale: 1 },
-    exit:{y:40, opacity: 0 },
-    transition:{ delay: 1.1,duration: 2}
-}
+
+
+
 
 export const loadingAnimations={
     initial:{ y:"50%",opacity:1, scale: 0.5 },
@@ -63,5 +76,5 @@ export const mainGlassMovementAnimations={
     initial:{ y:"50%",opacity:0, scale: 0.5 },
     animate:{ y:0,opacity:1, scale: 1 },
     exit:{y:"50%",opacity:0, transition:{duration:2} },
-    transition:{ delay: .2,duration:1,ease:"easeOut"}
+    transition:{ delay: .2,duration:.7}
 }

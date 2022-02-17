@@ -1,7 +1,7 @@
-import { Button, Typography } from '@mui/material'
+import {  Typography } from '@mui/material'
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
-import { loadingAnimations, mainGlassMovementAnimations } from '../services/shared/libraries/framermotion.service'
+import {  mainGlassMovementAnimations } from '../services/shared/libraries/framermotion.service'
 import { LoginForm } from './onboarding'
 import { FunnyLoader } from './units/FunnyLoader'
 
@@ -11,9 +11,9 @@ export const DisplayScreen = ({screenScene}) => {
             setIsLoading(true)
             setTimeout(() => {
                 setIsLoading(false)
-            }, 5000);
+            }, 12000);
     },  [])
-  return (
+    return (
     <>
         <AnimatePresence>
             {isLoading ? 

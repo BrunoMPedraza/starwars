@@ -10,7 +10,7 @@ import { passwords } from '../../services/home.service';
 import { useDispatch } from 'react-redux';
 import { login } from '../../features/useSlice';
 
-export const LoginForm = ({passedPassword}) => {
+export const LoginForm = () => {
   const PasswordTextField = styled(TextField)(PasswordTextFieldStyles);
   const [secretCode,setSecretCode] = useState()
   const [isLoading,setIsLoading] = useState()
@@ -27,15 +27,12 @@ export const LoginForm = ({passedPassword}) => {
       secretCode:secretCode 
       })
     )
-    passedPassword()
   }
 
   }
 
   return (
     <motion.section
-    drag
-    dragConstraints={fixedDraggable}
     className='login-form-container'
     >
       <Box
@@ -47,12 +44,11 @@ export const LoginForm = ({passedPassword}) => {
         <article>
           <PasswordTextField 
             key='password'
-            autoFocus="autoFocus"
+            autoFocus
             value={secretCode}
             variant='filled'
             label="Credenciales" 
-            color="primary" 
-            disableAutoFocus 
+            color="primary"
             onChange={handlePassword}
             InputProps={{
               style: { color: "#DBB404"} ,
@@ -67,8 +63,6 @@ export const LoginForm = ({passedPassword}) => {
         </article>
         <article
           className='login-form-button-container'
-          drag
-          dragConstraints={fixedDraggable}
         >
           <LoadingButton 
           loading={isLoading} 

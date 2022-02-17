@@ -1,60 +1,31 @@
+// LIBRARIES
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './App.scss';
-import reportWebVitals from './reportWebVitals';
-import { AppRoutes } from './routes/AppRoutes';
-import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
+//STYLING
+import { createTheme } from '@mui/material/styles';
+import { starwarsTheme } from './services/shared/libraries/mui.service';
+import './App.scss';
+// REDUX
 import { Provider } from 'react-redux'
-import store from './app/store'
+import {store} from './redux/store'
+// OTHER
+import { AppRoutes } from './routes/AppRoutes';
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
 
 // PALLETE: https://color.adobe.com/es/Star-Wars-(RetroMoviePostercom)-color-theme-6247821/
 // PRIMARY: BLUE
 // SECONDARY: YELLOW
-const starwars = createTheme({
-  palette:{
-    secondary: {
-      light: "#5797a7",
-      main: "#0A88A9",
-      dark: "#065063"
-    },
-    primary:{
-      light: '#ad9c4d',
-      main: '#DBB404',
-      dark: '#635410',
-      contrastText: '#000000'
-    },
-    info:{
-      light:'#fafafa',
-      main:'#F0F0ED',
-      dark:'#c0c0c0'
-    }
-  },
-  typography: {
-    fontFamily:'DIN',
-    h1:{
-      fontSize: '2rem',
-      fontWeight: 700
-    },
-    h2:{
-      fontSize: '1.4rem',
-      fontWeight: 600
-    },
-    h5:{
-      fontSize: '1.1rem',
-      fontWeight: 400
-    },
-    h6:{
-      fontSize: '.85rem',
-    },
-   },
-})
+const starwars = createTheme(starwarsTheme)
 
 ReactDOM.render( 
   <React.StrictMode>
     <ThemeProvider theme={starwars}>
       <Provider store={store}>
-        <AppRoutes />
+        <BrowserRouter>
+          <AppRoutes />
+        </BrowserRouter>
       </Provider>
     </ThemeProvider>
     

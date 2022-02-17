@@ -7,15 +7,17 @@ import { loadingAnimations } from '../../services/shared/libraries/framermotion.
 export const FunnyLoader = ({isLoading}) => {
     const phrases = [
         {id:1 ,phrase: 'Comenzando carga', duration: 4200 },
-        {id:2 ,phrase: 'Limpiando hiperdimensionalizador', duration: 4400 },
-        {id:3 ,phrase: 'Arreglando drones arregladores', duration: 3500 },
-        {id:4 ,phrase: 'Evitando colision interespacial', duration: 4350 },
+        {id:2 ,phrase: 'Limpiando túneles de gusano', duration: 4400 },
+        {id:3 ,phrase: 'Arreglando drones reparadores', duration: 3500 },
+        {id:4 ,phrase: 'Evitando colision interestelar', duration: 4350 },
         {id:5 ,phrase: 'Cazando cazarrecompensas', duration: 3300 },
         {id:6 ,phrase: 'Quitando lapices del motor', duration: 3700 },
         {id:7 ,phrase: 'Observando la nada', duration: 5000 },
         {id:8 ,phrase: 'Secuestrando jovenes aprendices', duration: 2100 },
-        {id:9 ,phrase: 'Cargando interestelador', duration: 4250 }
+        {id:9 ,phrase: 'Cargando interestelador', duration: 4250 },
+        {id:10 ,phrase: '¿Eso es una tortuga?', duration: 2250 }
     ]
+    const usedPhrases = []
 
     const [index,setIndex] = useState(0)
     const [currentPhrase,setCurrentPhrase] = useState(phrases[0].phrase)

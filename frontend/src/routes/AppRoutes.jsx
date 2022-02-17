@@ -1,14 +1,28 @@
 import React from "react";
-import { BrowserRouter,Route,Routes } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import { Route,Routes,useLocation } from "react-router-dom";
+import { LogoContainer } from "../components/LogoContainer";
+import { Starbackground } from "../components/Starbackground";
 import {Panel} from '../pages'
+import { StartApp } from "../pages/StartApp";
 export const AppRoutes = () => {
+  const location = useLocation() 
   
+
   return (
-    <BrowserRouter>
-        <Routes>
-          <Route path='onboarding/*' element={<Panel/>}/>
-        </Routes>
-    </BrowserRouter>
+          <AnimatePresence>
+            <Starbackground/>
+            <LogoContainer/>
+            <Routes 
+            location={location} 
+            key={location.pathname}
+            >
+              <Route path='welcome/' element={<StartApp/>}/>
+              <Route path='panel/*' element={<Panel/>}/>
+
+            </Routes>
+          </AnimatePresence>
+
   );
 
 
