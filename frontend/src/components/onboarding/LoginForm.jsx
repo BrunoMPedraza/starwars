@@ -9,8 +9,11 @@ import { fixedDraggable, PasswordTextFieldStyles } from '../../services/shared/l
 import { passwords } from '../../services/home.service';
 import { useDispatch } from 'react-redux';
 import { login } from '../../features/useSlice';
+import { useNavigate } from 'react-router';
+import { actions, createAlert, setAlert } from '../../features/alertSlice';
 
 export const LoginForm = () => {
+  let navigate = useNavigate();
   const PasswordTextField = styled(TextField)(PasswordTextFieldStyles);
   const [secretCode,setSecretCode] = useState()
   const [isLoading,setIsLoading] = useState()
@@ -22,12 +25,29 @@ export const LoginForm = () => {
   const storePassword = (e) =>{
     e.preventDefault()
     if(passwords.includes(secretCode)){
-    dispatch(
-      login({
-      secretCode:secretCode 
-      })
-    )
-  }
+      dispatch(
+        actions.createAlert({
+          message:'Ingreso exitoso',
+          type:'success'
+        })
+      )
+      dispatch(
+        login({
+        secretCode:secretCode 
+        })
+      )
+      // navigate(`logged/${secretCode}`)
+      // I know this is dumb lol, just moving around stuff
+  
+    }else{
+      dispatch(
+        actions.createAlert({
+          message:'Usuario desconocido',
+          type:'fail'
+        })
+      )
+    }
+    
 
   }
 

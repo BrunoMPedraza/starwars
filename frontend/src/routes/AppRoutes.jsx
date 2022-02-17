@@ -5,12 +5,13 @@ import { LogoContainer } from "../components/LogoContainer";
 import { Starbackground } from "../components/Starbackground";
 import {Panel} from '../pages'
 import { StartApp } from "../pages/StartApp";
+import { Feedback } from "../components/units/Feedback";
 export const AppRoutes = () => {
   const location = useLocation() 
-  
 
   return (
           <AnimatePresence>
+            <Feedback/>
             <Starbackground/>
             <LogoContainer/>
             <Routes 
@@ -18,7 +19,7 @@ export const AppRoutes = () => {
             key={location.pathname}
             >
               <Route path='welcome/' element={<StartApp/>}/>
-              <Route path='panel/*' element={<Panel/>}/>
+              <Route path='panel/' element={<Panel/>}/>
 
             </Routes>
           </AnimatePresence>
