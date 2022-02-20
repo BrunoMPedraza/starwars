@@ -10,7 +10,7 @@ export const loadSwapi = async(categories) =>{
         return 'Ha ocurrido un error'
     } 
     catch(error) {
-        throw error;
+        throw new Error (error);
     }
 }
 

@@ -1,18 +1,23 @@
 import {  Typography } from '@mui/material'
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
+import { Route,useLocation,Routes } from 'react-router'
+import { Data } from '../pages'
 import {  mainGlassMovementAnimations } from '../services/shared/libraries/framermotion.service'
 import { LoginForm } from './onboarding'
 import { FunnyLoader } from './units/FunnyLoader'
 
 export const DisplayScreen = ({screenScene}) => {
+
     const [isLoading,setIsLoading] = useState(true)
         useEffect(() => {
             setIsLoading(true)
             setTimeout(() => {
                 setIsLoading(false)
-            }, 12000);
+            }, 1000);
     },  [])
+
+
     return (
     <>
         <AnimatePresence>
@@ -29,6 +34,7 @@ export const DisplayScreen = ({screenScene}) => {
             </motion.aside> 
             :
             <motion.main
+            key='mainglass'
             className='fixed'
             {...mainGlassMovementAnimations}
             >
@@ -37,16 +43,20 @@ export const DisplayScreen = ({screenScene}) => {
                         <Typography color='primary' component='h1' variant='h1' className='welcome-message'>
                             Autenticación
                         </Typography>
-                        <LoginForm passedPassword={()=>console.log('test')}/>
+                        <LoginForm/>
                     </>
                 )}
-                {screenScene==='menu'&& (
+                {
+                    
+                }
+                {screenScene==='help'&& (
                     <>
                         <Typography color='primary' component='h2' variant='h1'>
-                            Menu
+                            AYUDA va aquí
                         </Typography>
                     </>
                 )}
+                
             </motion.main>
             }
         </AnimatePresence>

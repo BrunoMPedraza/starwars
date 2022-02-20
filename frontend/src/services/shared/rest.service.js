@@ -2,9 +2,10 @@ import axios from 'axios';
 
 const baseUrl = process.env.REACT_APP_API_URL;
 
+// REMEMBER IT IS IMPORTED AS restGet
 export const get = async (endpoint, body, headers) => {
     try {
-        const url = `https://swapi.dev/api/${endpoint}`;
+        const url = `https://swapi.py4e.com/api/${endpoint}`;
         const result = await axios(url, {
             method: 'GET',
             headers: headers ? headers : {'content-type': 'application/json'},

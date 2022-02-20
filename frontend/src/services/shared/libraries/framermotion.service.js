@@ -13,14 +13,20 @@
         transition:{ delay: 3,duration: 2}
     }
 //END OF PAGE 0
-// MISC
+// MAIN CHUNK
 export const glassAnimations={
-    initial:{ y:'-90vh', scale: .8 },
+    initial:{ y:'-90vh',  scale: .8 },
     animate:{ y:0, scale: 1 },
-    exit:{y:0, opacity: 0 },
+    exit:{y:'-90vh' },
     transition:{ delay: .3,duration: 2}
 }
-// END OF MISC
+export const authAnimations={
+    initial:{ y:'-90vh',opacity:0,  scale: .9 },
+    animate:{ y:0,opacity:1, scale: 1 },
+    exit:{y:'-90vh' },
+    transition:{ delay: 2.5,duration: 2}
+}
+// END OF MAIN
 export const twinklingAnimations = {
     initial:{ x: '180vh' },
     animate:{ x: '-200vh'},
@@ -75,6 +81,5 @@ export const loadingAnimations={
 export const mainGlassMovementAnimations={
     initial:{ y:"50%",opacity:0, scale: 0.5 },
     animate:{ y:0,opacity:1, scale: 1 },
-    exit:{y:"50%",opacity:0, transition:{duration:2} },
     transition:{ delay: .2,duration:.7}
 }

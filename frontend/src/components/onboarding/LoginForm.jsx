@@ -1,52 +1,54 @@
 import { styled } from '@mui/material/styles';
-import { Box, Button, InputAdornment, TextField } from '@mui/material'
+import { Box, InputAdornment, TextField } from '@mui/material'
 import LoadingButton from '@mui/lab/LoadingButton';
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
 import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
-import { fixedDraggable, PasswordTextFieldStyles } from '../../services/shared/libraries/mui.service';
+import {  PasswordTextFieldStyles } from '../../services/shared/libraries/mui.service';
 import { passwords } from '../../services/home.service';
 import { useDispatch } from 'react-redux';
-import { login } from '../../features/useSlice';
 import { useNavigate } from 'react-router';
-import { actions, createAlert, setAlert } from '../../features/alertSlice';
-
+import {createAlert, logIn} from '../../redux/peopleRedux/people.actions'
 export const LoginForm = () => {
   let navigate = useNavigate();
   const PasswordTextField = styled(TextField)(PasswordTextFieldStyles);
-  const [secretCode,setSecretCode] = useState()
+  const [userName,setUserName] = useState()
   const [isLoading,setIsLoading] = useState()
   const dispatch = useDispatch();
   const handlePassword = (e) =>{
     e.preventDefault()
-    setSecretCode((e.target.value).toLowerCase())
+    setUserName((e.target.value).toLowerCase())
   }
   const storePassword = (e) =>{
-    e.preventDefault()
-    if(passwords.includes(secretCode)){
-      dispatch(
-        actions.createAlert({
-          message:'Ingreso exitoso',
-          type:'success'
-        })
-      )
-      dispatch(
-        login({
-        secretCode:secretCode 
-        })
-      )
-      // navigate(`logged/${secretCode}`)
-      // I know this is dumb lol, just moving around stuff
-  
-    }else{
-      dispatch(
-        actions.createAlert({
-          message:'Usuario desconocido',
-          type:'fail'
-        })
-      )
-    }
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false)
+        // FAKE DB LOGIN COLLECTION
+      e.preventDefault()
+      if(passwords.includes(userName)){
+        let isLogged=true
+        dispatch(
+          createAlert("Ingreso exitoso","success")
+        )
+        if(userName==='ani'){
+          dispatch(
+            logIn(userName,'jedi',isLogged)
+          )
+        }
+        else{
+          dispatch(
+            logIn(userName,'sith',isLogged)
+          )
+        }
+        navigate(`logged/${userName}`)
+    
+      }else{
+        dispatch(
+          createAlert("Usuario desconocido","fail")
+        )
+      }
+    }, 2000);
     
 
   }
@@ -54,6 +56,7 @@ export const LoginForm = () => {
   return (
     <motion.section
     className='login-form-container'
+    key='login-form-container'
     >
       <Box
         component="form"
@@ -65,7 +68,7 @@ export const LoginForm = () => {
           <PasswordTextField 
             key='password'
             autoFocus
-            value={secretCode}
+            value={userName}
             variant='filled'
             label="Credenciales" 
             color="primary"
@@ -74,7 +77,7 @@ export const LoginForm = () => {
               style: { color: "#DBB404"} ,
               startAdornment: (
                 <InputAdornment position="start">
-                  {!passwords.includes(secretCode) ? <LockTwoToneIcon color='primary' /> : <LockOpenTwoToneIcon color='primary'/>}
+                  {!passwords.includes(userName) ? <LockTwoToneIcon color='primary' /> : <LockOpenTwoToneIcon color='primary'/>}
                 </InputAdornment>
                 ),
               }
@@ -87,7 +90,7 @@ export const LoginForm = () => {
           <LoadingButton 
           loading={isLoading} 
           loadingIndicator="Verificando ..." 
-          disabled={!secretCode} 
+          disabled={!userName} 
           color='primary' 
           onClick={storePassword}
           type='submit'

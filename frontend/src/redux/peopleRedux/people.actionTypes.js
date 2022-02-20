@@ -1,3 +1,8 @@
 export const LOAD_DATA_REQUEST = 'LOAD_DATA_REQUEST'
 export const LOAD_DATA_SUCCESS = 'LOAD_DATA_SUCCESS'
 export const LOAD_DATA_FAILURE = 'LOAD_DATA_FAILURE'
+
+export const CREATE_ALERT = 'CREATE_ALERT'
+export const SHOW_ALERT = 'SHOW_ALERT'
+
+export const USER_INFO = 'USER_INFO'

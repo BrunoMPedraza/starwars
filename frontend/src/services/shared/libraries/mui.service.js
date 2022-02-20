@@ -31,7 +31,7 @@ export const starwarsTheme = { palette:{
     light:'#fafafa',
     main:'#F0F0ED',
     dark:'#c0c0c0'
-  }
+  },
 },
 typography: {
   fontFamily:'DIN',

@@ -9,10 +9,10 @@ export const InfoCube = () => {
 
   
   return (
-    <motion.section className='info-cube-container' {...glassAnimations}>
+    <motion.section key='glass-container' className='info-cube-container' {...glassAnimations}>
       <header className='info-cube-header'>
         <AnimatePresence>
-          <motion.aside {...asidePropsAnimations} key='outside-glass'>
+          <motion.aside key='glass-outer' {...asidePropsAnimations}>
             <GlassLimit message='Solo personal autorizado de IM'/>
           </motion.aside>
           <motion.section 
@@ -24,7 +24,7 @@ export const InfoCube = () => {
           </motion.section>
         </AnimatePresence>
       </header>
-      <Unlogger/>
+
     </motion.section>
   )
 }

@@ -36,6 +36,7 @@ export const StartApp = () => {
                 </Button>
             </NavLink>
             <motion.aside
+            key='github'
             {...githubAnimations}
             >
                 <NavLink 

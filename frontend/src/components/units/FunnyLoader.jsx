@@ -38,7 +38,7 @@ export const FunnyLoader = ({isLoading}) => {
     <AnimatePresence>
        {!isLoading ?
         <motion.section
-        key="test"
+        key="phraseMOver"
         initial={{opacity:0}}
         animate={{opacity:1}}
         className='loading-container'

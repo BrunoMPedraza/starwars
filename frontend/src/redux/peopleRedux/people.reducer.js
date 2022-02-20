@@ -1,13 +1,22 @@
-import { LOAD_DATA_REQUEST,LOAD_DATA_SUCCESS,LOAD_DATA_FAILURE } from "./people.actionTypes";
+import { LOAD_DATA_REQUEST,LOAD_DATA_SUCCESS,LOAD_DATA_FAILURE,CREATE_ALERT,SHOW_ALERT, USER_INFO } from "./people.actionTypes";
 
-export const PERSON_KEY = 'peopleStore'
-let initialState = {
+export const DATA_KEY = 'dataSwapi'
+export const NOTIFICATIONS_KEY = 'notificationsLog'
+export const LOGGED_KEY = 'loggedAuth'
+let dataInitialState = {
     data:[],
     loading:false,
     errorMessage:''
 }
+let alertInitialState = {
+}
+let loggedInitialState = {
+    name:'user',
+    side:'sith',
+    isLogged:false
+}
 
-export const peopleReducer = (state=initialState,action) =>{
+export const peopleReducer = (state=dataInitialState,action) =>{
     let{type,payload} = action
     switch(type){
         case LOAD_DATA_REQUEST:
@@ -32,3 +41,33 @@ export const peopleReducer = (state=initialState,action) =>{
         default: return state
     }
 }
+
+export const alertsReducer = (state=alertInitialState,action) =>{
+    let{type,payload} = action
+    switch(type){
+        case CREATE_ALERT:
+            return{
+            message: payload.message,
+            type: payload.type
+            }
+        case SHOW_ALERT:
+            return{
+                message: payload.message,
+                type: payload.type
+            }
+        default: return state
+        }
+}
+
+export const loggerReducer = (state=loggedInitialState,action) =>{
+    let{type,payload} = action
+    switch(type){
+        case USER_INFO:
+            return{
+                name:payload.name,
+                side:payload.side,
+                isLogged:payload.isLogged
+            }
+        default: return state
+    }
+}   

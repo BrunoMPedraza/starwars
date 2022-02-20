@@ -1,3 +1,4 @@
-import {Home} from './onboarding/Home'
 import {Panel} from './Panel'
-export {Home,Panel}
+import {Data} from './Data'
+import { StartApp } from './StartApp'
+export {Panel,Data,StartApp}
