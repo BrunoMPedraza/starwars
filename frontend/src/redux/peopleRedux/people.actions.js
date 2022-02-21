@@ -1,4 +1,4 @@
-import { LOAD_DATA_REQUEST,LOAD_DATA_SUCCESS,LOAD_DATA_FAILURE,SHOW_ALERT, CREATE_ALERT, LOG_IN, LOG_OUT, USER_INFO } from "./people.actionTypes";
+import { LOAD_DATA_REQUEST,LOAD_DATA_SUCCESS,LOAD_DATA_FAILURE,SHOW_ALERT, CREATE_ALERT, LOG_IN, LOG_OUT, USER_INFO, LOG_CHOICE } from "./people.actionTypes";
 import { get as restGet } from "../../services/shared/rest.service";
 // WILL TURN INTO A POWERFUL FETCHING MACHINE AFTER I APPLY PARAMS MUAHAHA
 export const loadData = (param)=>{
@@ -55,6 +55,16 @@ export const logOut = () =>{
         const payload= {name:null,side:null,isLogged:false}
         try{
             dispatch({type:USER_INFO,payload:payload})
+        }catch(e){
+            console.error(e)
+        }
+    }
+}
+
+export const pickPage = (pageChoice) =>{
+    return async(dispatch)=>{
+            try{
+            dispatch({type:LOG_CHOICE,payload:pageChoice})
         }catch(e){
             console.error(e)
         }

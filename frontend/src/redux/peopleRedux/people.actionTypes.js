@@ -6,3 +6,4 @@ export const CREATE_ALERT = 'CREATE_ALERT'
 export const SHOW_ALERT = 'SHOW_ALERT'
 
 export const USER_INFO = 'USER_INFO'
+export const LOG_CHOICE = "LOG_CHOICE"

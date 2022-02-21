@@ -9,7 +9,7 @@ import {  PasswordTextFieldStyles } from '../../services/shared/libraries/mui.se
 import { passwords } from '../../services/home.service';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
-import {createAlert, logIn} from '../../redux/peopleRedux/people.actions'
+import {createAlert, logIn, pickPage} from '../../redux/peopleRedux/people.actions'
 export const LoginForm = () => {
   let navigate = useNavigate();
   const PasswordTextField = styled(TextField)(PasswordTextFieldStyles);
@@ -28,6 +28,9 @@ export const LoginForm = () => {
       e.preventDefault()
       if(passwords.includes(userName)){
         let isLogged=true
+        dispatch(
+          pickPage({pageChoice:0})
+        )
         dispatch(
           createAlert("Ingreso exitoso","success")
         )
@@ -48,7 +51,7 @@ export const LoginForm = () => {
           createAlert("Usuario desconocido","fail")
         )
       }
-    }, 2000);
+    }, 500);
     
 
   }

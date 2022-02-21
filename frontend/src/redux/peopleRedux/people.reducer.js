@@ -1,4 +1,4 @@
-import { LOAD_DATA_REQUEST,LOAD_DATA_SUCCESS,LOAD_DATA_FAILURE,CREATE_ALERT,SHOW_ALERT, USER_INFO } from "./people.actionTypes";
+import { LOAD_DATA_REQUEST,LOAD_DATA_SUCCESS,LOAD_DATA_FAILURE,CREATE_ALERT,SHOW_ALERT, USER_INFO, LOG_CHOICE } from "./people.actionTypes";
 
 export const DATA_KEY = 'dataSwapi'
 export const NOTIFICATIONS_KEY = 'notificationsLog'
@@ -15,6 +15,7 @@ let loggedInitialState = {
     side:'sith',
     isLogged:false
 }
+
 
 export const peopleReducer = (state=dataInitialState,action) =>{
     let{type,payload} = action
@@ -64,9 +65,16 @@ export const loggerReducer = (state=loggedInitialState,action) =>{
     switch(type){
         case USER_INFO:
             return{
+                ...state,
                 name:payload.name,
                 side:payload.side,
-                isLogged:payload.isLogged
+                isLogged:payload.isLogged,
+                pageChoice:0,
+            }
+        case LOG_CHOICE:
+            return{
+                ...state,
+                pageChoice:payload.pageChoice
             }
         default: return state
     }
