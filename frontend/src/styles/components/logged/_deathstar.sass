@@ -28,6 +28,17 @@ section
                         height: 2rem
                 article
                     &.interface-container
-                        article
-                            position: fixed
-                            width: 100%
+                        div
+                            &.option-container
+                                z-index: 99
+                                position: absolute
+                                width: 95%
+                                left: 2.5%
+                                top: 15%
+                                background-color: #706f6f23
+                                filter: blur(0.3)
+                                height: 85%
+                        aside
+                            position: absolute
+                            top: 2rem
+                            right: 2rem

@@ -14,7 +14,7 @@ export const ReturnButtonInterface = () => {
     }
     return (
         <motion.aside>
-            <CloseIcon color='primary' onClick={(e)=>handleExit(e)}/>
+            <CloseIcon  color='primary' onClick={(e)=>handleExit(e)}/>
         </motion.aside>
     )
 }

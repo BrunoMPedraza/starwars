@@ -7,14 +7,7 @@ import { InfoCube } from '../components/InfoCube'
 import { loadData } from '../redux/peopleRedux/people.actions'
 
 export const Panel = () => {
-  let dispatch= useDispatch()
-  useEffect(() => {
-    async function savePeople(){
-      dispatch(loadData('people'))
-    }
-    savePeople()
-  }, [dispatch])
-  // view store
+ 
   return (
     <motion.main
     key='app-panel'
